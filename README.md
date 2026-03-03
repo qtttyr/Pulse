@@ -1,89 +1,84 @@
-# ⚡ PULSE: High-Fidelity Code Architecture X-Ray
+# 🧠 Pulse: AI-Powered Code Architecture Auditor
 
-> **Winner-grade AI-powered code analysis and visualization engine.**  
-> Pulse transforms complex, messy repositories into clear, actionable, and beautiful architectural maps. Built for developers who value precision, speed, and deep insights.
+Pulse is a high-end architectural analysis engine that visualizes codebase structures in 3D/2D space and provides deep AI-driven audits. It helps developers understand complex repositories, track technical debt, and find "Gold Nuggets" of elegant code.
 
----
+![Pulse Dashboard Mockup](frontend/public/og-image.png)
 
-## 🚀 The Vision
+## 🚀 Features
 
-In most hackathons, judges are bored by "another chat with docs." **Pulse is different.**  
-It doesn't just talk; it **shows**. By combining static analysis with LLM-powered structural reasoning, Pulse provides an "X-Ray" view of any project, identifying tech debt, innovation hotspots, and dependency clusters in seconds.
+- **X-Ray Analysis**: Deep scan of any Git repository.
+- **Interactive Graph**: 2D/3D force-directed graph of project topology.
+- **AI Audit Narratives**: Detailed feedback on modularity, scalability, and performance.
+- **The Gold Nugget**: Automatic detection of the most elegant code snippets.
+- **Architectural Alpha Reports**: Professional PDF export with folder tree visualization.
+- **Real-time Metrics**: Pulse score, technical debt evaluation, and innovation index.
 
-## 🛠 Tech Stack (The Professional's Choice)
-
-Pulse is built with a modern, scalable, and high-performance stack:
-
-### Frontend
-
-- **Framework**: React 19 + Vite (Ultra-fast HMR)
-- **Visual Engine**: [XYFlow (React Flow)](https://reactflow.dev/) + [Dagre](https://github.com/dagrejs/dagre) (Custom hierarchical layout engine)
-- **Styling**: Tailwind CSS + Framer Motion (Cyberpunk aesthetics & glassmorphism)
-- **State Management**: Zustand (Minimalist, high-performance state)
-- **Icons**: Lucide React
-
-### Backend
-
-- **Core**: FastAPI (Python 3.12+)
-- **Intelligence**: Integrated with LLMs (Qwen 2.5 Coder via OpenRouter) for deep architectural auditing.
-- **Analysis**: Custom recursive dependency parser and project structure walker.
-
----
-
-## ✨ Key Features
-
-- **Interactive Radar Explorer**: A "Folder-First" approach to navigation. Drill down into architecture without the noise.
-- **AI Verdicts**: Instant structural scoring (Tech Debt, Innovation, Industry Readiness).
-- **Dynamic Dagre Layout**: Automatically optimizes code maps for perfect hierarchy—no overlapping nodes.
-- **Micro-Animations**: Real-time signal pulsing and glow effects for a "live" system feel.
-
----
-
-## 🛠 Instructions for Success (Free Deployment)
-
-To win, you need to show the project live. Use these free-tier providers for a professional setup:
-
-### 1. Frontend: Vercel (Free)
-
-1. Push your code to a GitHub repository.
-2. Connect the repo to [Vercel](https://vercel.com).
-3. Set the build command to `npm run build` and the output directory to `dist`.
-4. **Environment Variables**: Point `VITE_API_URL` to your backend URL.
-
-### 2. Backend: Railway or Render (Free Tier)
-
-1. Create a new service on [Railway.app](https://railway.app) or [Render.com](https://render.com).
-2. Connect your GitHub repo.
-3. Pulse Backend requires Python. Set the start command to:
-   `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. **Environment Variable**: `OPENROUTER_API_KEY` (Your key for AI analysis).
-
----
-
-## 🏁 Quick Start (Local)
-
-### Backend
-
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-```
+## 🛠 Tech Stack
 
 ### Frontend
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+- **React 18** (Vite)
+- **TypeScript**
+- **Zustand** (State management)
+- **Tailwind CSS** + **Framer Motion** (Premium UI)
+- **Lucide React** (Icons)
+- **html2pdf.js** (Direct PDF generation)
 
----
+### Backend
 
-## 🏆 Presentation Tip for Judges
+- **FastAPI** (Python 3.10+)
+- **OpenRouter API** (LLM orchestrator)
+- **GitPython** (Repo cloning)
+- **Uvicorn** (ASGI server)
 
-When presenting, explain how **Pulse reduces onboarding time** for new developers. Click on a top-level folder to reveal the underlying files and say: _"We don't just see code; we see the pulse of the system—how it talks, where it's strong, and where it needs help."_
+## 📦 Setup & Installation
 
-**Built with ⚡ by the Pulse Team.**
+### Prerequisites
+
+- Node.js (v18+)
+- Python (v3.10+)
+- OpenRouter API Key
+
+### Backend Setup
+
+1. `cd backend`
+2. `python -m venv venv`
+3. `source venv/bin/activate` (or `venv\Scripts\activate` on Windows)
+4. `pip install -r requirements.txt`
+5. Create `.env` file:
+   ```env
+   OPENROUTER_API_KEY=your_key_here
+   ```
+6. `uvicorn app.main:app --reload`
+
+### Frontend Setup
+
+1. `cd frontend`
+2. `npm install`
+3. Create `.env` file:
+   ```env
+   VITE_API_URL=http://localhost:8000
+   ```
+4. `npm run dev`
+
+## 🌐 Deployment
+
+### Backend (Render / Heroku)
+
+- **Build Command**: `pip install -r requirements.txt`
+- **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+- **Env Vars**:
+  - `OPENROUTER_API_KEY`
+  - `ALLOWED_ORIGINS` (Comma-separated list of your frontend URLs)
+
+### Frontend (Vercel)
+
+- **Framework Preset**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Env Vars**:
+  - `VITE_API_URL` (Your deployed backend URL)
+
+## 📄 License
+
+MIT

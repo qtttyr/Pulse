@@ -16,12 +16,11 @@ app = FastAPI(
 )
 
 # CORS configuration
+env_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://pulse-aiauditor.vercel.app",
-    "https://pulse-auditor.vercel.app",
-]
+] + [o.strip() for o in env_origins if o.strip()]
 
 app.add_middleware(
     CORSMiddleware,
