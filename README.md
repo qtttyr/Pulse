@@ -61,23 +61,35 @@ Pulse is a high-end architectural analysis engine that visualizes codebase struc
    ```
 4. `npm run dev`
 
-## 🌐 Deployment
+### Backend (Google Cloud Run / Docker)
 
-### Backend (Render / Heroku)
+Pulse Backend is fully containerized. To deploy to **Google Cloud Run**:
 
-- **Build Command**: `pip install -r requirements.txt`
-- **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- **Env Vars**:
-  - `OPENROUTER_API_KEY`
-  - `ALLOWED_ORIGINS` (Comma-separated list of your frontend URLs)
+1. **Build the image**:
+   ```bash
+   cd backend
+   docker build -t gcr.io/[PROJECT_ID]/pulse-backend .
+   ```
+2. **Push to Container Registry**:
+   ```bash
+   docker push gcr.io/[PROJECT_ID]/pulse-backend
+   ```
+3. **Deploy to Cloud Run**:
+   - Go to Cloud Run in Console.
+   - Choose "Deploy from Container".
+   - Set **Port to 8080**.
+   - **Env Vars**:
+     - `OPENROUTER_API_KEY`
+     - `ALLOWED_ORIGINS` (Your Vercel URL)
+   - Set Memory to at least **1GB** (for repo processing).
 
 ### Frontend (Vercel)
 
-- **Framework Preset**: Vite
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Env Vars**:
-  - `VITE_API_URL` (Your deployed backend URL)
+1. **Framework Preset**: Vite
+2. **Build Command**: `npm run build`
+3. **Output Directory**: `dist`
+4. **Env Vars**:
+   - `VITE_API_URL`: Your Cloud Run service URL (e.g., `https://pulse-backend-xyz.a.run.app`)
 
 ## 📄 License
 

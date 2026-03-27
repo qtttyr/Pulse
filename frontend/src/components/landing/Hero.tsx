@@ -7,9 +7,9 @@ type HeroProps = {
 };
 
 function Hero({ onStartAudit }: HeroProps) {
-  return (
-    <section className="flex flex-1 items-center pb-8 pt-4 sm:pt-10 lg:pt-16">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 text-center">
+    return (
+     <section className="flex flex-1 items-center pb-8 pt-4 sm:pt-10 lg:pt-16">
+       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-4 sm:px-6 text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-4 py-1.5 text-xs text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.9)] backdrop-blur">
           <span className="flex h-4 w-4 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-violet-500 text-[0.6rem] font-bold text-slate-950">

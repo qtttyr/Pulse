@@ -17,7 +17,7 @@ def clone_repository(repo_url: str, dest_path: str):
             capture_output=True,
             text=True,
             cwd=dest_path,
-            shell=True
+            timeout=120
         )
         
         if result.returncode != 0:

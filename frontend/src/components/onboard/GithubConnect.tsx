@@ -65,34 +65,34 @@ function GithubConnect({ onBackToLanding, onAnalysisComplete }: GithubConnectPro
 
             <div className="space-y-6">
               <div className="relative group">
-                <Input
-                  placeholder="https://github.com/org/project"
-                  value={url}
-                  onChange={(event) => setUrl(event.target.value)}
-                  disabled={isLoading}
-                  className="h-14 pl-5 pr-36 rounded-2xl border-slate-800 bg-slate-900/50 text-base text-slate-100 placeholder:text-slate-600 focus:ring-sky-500/20 transition-all duration-300 group-hover:border-slate-700"
-                />
-                <div className="absolute right-2 top-2">
-                  <Button
-                    className="h-10 rounded-xl bg-linear-to-r from-sky-500 to-violet-500 px-6 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/20 hover:brightness-110 active:scale-95 transition-all duration-200"
-                    disabled={isLoading || !url}
-                    onClick={() => {
-                      const isValid = validate()
-                      if (isValid) analyzeRepository(url)
-                    }}
-                  >
-                    {isLoading ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Sparkles className="h-4 w-4" />
-                      </motion.div>
-                    ) : (
-                      "Analyze"
-                    )}
-                  </Button>
-                </div>
+                 <Input
+                   placeholder="https://github.com/org/project"
+                   value={url}
+                   onChange={(event) => setUrl(event.target.value)}
+                   disabled={isLoading}
+                   className="h-11 pl-5 pr-36 rounded-2xl border-slate-800 bg-slate-900/50 text-base text-slate-100 placeholder:text-slate-600 focus:ring-sky-500/20 transition-all duration-300 group-hover:border-slate-700"
+                 />
+                 <div className="absolute right-2 top-2">
+                   <Button
+                     className="h-11 rounded-xl bg-linear-to-r from-sky-500 to-violet-500 px-6 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/20 hover:brightness-110 active:scale-95 transition-all duration-200"
+                     disabled={isLoading || !url}
+                     onClick={() => {
+                       const isValid = validate()
+                       if (isValid) analyzeRepository(url)
+                     }}
+                   >
+                     {isLoading ? (
+                       <motion.div
+                         animate={{ rotate: 360 }}
+                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                       >
+                         <Sparkles className="h-4 w-4" />
+                       </motion.div>
+                     ) : (
+                       "Analyze"
+                     )}
+                   </Button>
+                 </div>
               </div>
 
               {error && (
