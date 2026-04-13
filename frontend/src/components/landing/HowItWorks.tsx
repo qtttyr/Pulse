@@ -94,7 +94,7 @@ const colorMap: Record<string, { border: string; bg: string; text: string; badge
 
 function HowItWorks() {
   return (
-    <section className="border-t border-slate-800/60 py-24">
+    <section className="border-t border-slate-800/60 py-12 sm:py-24">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6">
 
         {/* ── Section header ── */}
