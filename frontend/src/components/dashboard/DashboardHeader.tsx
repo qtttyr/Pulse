@@ -23,7 +23,7 @@ export function DashboardHeader() {
   }
 
   return (
-    <div className="absolute left-6 top-6 z-50 flex items-start gap-4 pointer-events-none">
+    <div className="absolute left-4 top-4 right-4 z-50 flex items-start gap-4 pointer-events-none lg:left-6 lg:top-6">
       <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -44,9 +44,9 @@ export function DashboardHeader() {
               animate={{ width: "auto", opacity: 1 }}
               className="flex items-center gap-2 pr-2"
             >
-              <div className="relative w-64">
+              <div className="relative w-48 sm:w-64">
                 <Input
-                  placeholder="Paste GitHub URL..."
+                  placeholder="GitHub URL..."
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleAnalyze()}
@@ -58,9 +58,9 @@ export function DashboardHeader() {
                 size="sm"
                 onClick={handleAnalyze}
                 disabled={isLoading || !url}
-                className="h-9 rounded-xl bg-sky-500 text-slate-950 font-bold px-4 hover:bg-sky-400 transition-all text-xs"
+                className="h-9 rounded-xl bg-sky-500 text-slate-950 font-bold px-3 sm:px-4 hover:bg-sky-400 transition-all text-xs"
               >
-                {isLoading ? <Sparkles className="h-3.5 w-3.5 animate-spin" /> : "Pulse It"}
+                {isLoading ? <Sparkles className="h-3.5 w-3.5 animate-spin" /> : "Pulse"}
               </Button>
               <Button
                 variant="ghost"
@@ -74,10 +74,11 @@ export function DashboardHeader() {
           ) : (
             <button
               onClick={() => setIsExpanded(true)}
-              className="flex h-10 items-center gap-2 rounded-xl px-4 text-slate-400 hover:text-sky-400 hover:bg-sky-500/5 transition-all group"
+              className="flex h-10 items-center gap-2 rounded-xl px-3 sm:px-4 text-slate-400 hover:text-sky-400 hover:bg-sky-500/5 transition-all group"
             >
               <Plus className="h-4 w-4 transition-transform group-hover:rotate-90" />
-              <span className="text-xs font-bold uppercase tracking-widest">New Analysis</span>
+              <span className="text-xs font-bold uppercase tracking-widest hidden sm:inline">New Analysis</span>
+              <span className="text-xs font-bold uppercase tracking-widest sm:hidden">New</span>
             </button>
           )}
       </motion.div>

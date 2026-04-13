@@ -1,10 +1,10 @@
-from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel, field_validator
 from typing import List, Dict, Any
 import os
 import shutil
 import tempfile
-from fastapi import HTTPException
+from urllib.parse import urlparse
 
 from app.services.fetcher import clone_repository
 from app.services.graph_gen import analyze_dependencies
@@ -14,6 +14,26 @@ router = APIRouter()
 
 class AnalyzeRequest(BaseModel):
     repo_url: str
+
+    @field_validator('repo_url')
+    @classmethod
+    def validate_github_url(cls, v: str) -> str:
+        if not v:
+            raise ValueError('URL cannot be empty')
+        
+        parsed = urlparse(v)
+        
+        if parsed.scheme not in ('http', 'https'):
+            raise ValueError('URL must start with http:// or https://')
+        
+        if 'github.com' not in parsed.netloc:
+            raise ValueError('Only GitHub repositories are supported')
+        
+        path = parsed.path.strip('/')
+        if not path or '/' not in path:
+            raise ValueError('Invalid GitHub URL format. Expected: https://github.com/owner/repo')
+        
+        return v
 
 class AnalyzeResponse(BaseModel):
     status: str
@@ -55,7 +75,7 @@ async def analyze_repo(request: AnalyzeRequest):
         graph_data = analyze_dependencies(repo_path, repo_path)
         
         # 4. AI Analysis
-        print(f"🤖 Step 3: AI Analysis via OpenRouter...", flush=True)
+        print(f"🤖 Step 3: AI Analysis via Gemini...", flush=True)
         verdict = await analyze_with_ai(graph_data, repo_path)
         
         return {

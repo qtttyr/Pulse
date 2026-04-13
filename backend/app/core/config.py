@@ -3,8 +3,7 @@ from pathlib import Path
 
 
 class Settings(BaseSettings):
-    OPENROUTER_API_KEY: str = ""
-    OPENROUTER_MODEL: str = "deepseek/deepseek-chat-v3-0324:free"
+    GEMINI_API_KEY: str = ""
     APP_TITLE: str = "Pulse API"
     APP_VERSION: str = "1.0.0"
 

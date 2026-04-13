@@ -20,11 +20,11 @@ env_origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-] + [o.strip() for o in env_origins if o.strip()]
+] + [o.strip() for o in env_origins if o.strip() and o.strip() not in ("", "*")]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=origins if origins else ["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

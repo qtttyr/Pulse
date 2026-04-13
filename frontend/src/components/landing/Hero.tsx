@@ -8,27 +8,27 @@ type HeroProps = {
 
 function Hero({ onStartAudit }: HeroProps) {
   return (
-    <section className="flex flex-1 items-center pb-8 pt-4 sm:pt-10 lg:pt-16">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 text-center">
+    <section className="flex flex-1 items-center pb-6 pt-4 sm:pt-10 lg:pt-16 px-4 sm:px-6">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-4 py-1.5 text-xs text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.9)] backdrop-blur">
+        <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/80 px-3 py-1.5 text-xs text-slate-300 shadow-[0_0_30px_rgba(15,23,42,0.9)] backdrop-blur">
           <span className="flex h-4 w-4 items-center justify-center rounded-full bg-linear-to-br from-sky-500 to-violet-500 text-[0.6rem] font-bold text-slate-950">
             AI
           </span>
-          <span className="uppercase tracking-[0.18em] text-slate-300">
-            Codebase X-ray · Built for hackathon judges
+          <span className="uppercase tracking-[0.18em] text-slate-300 text-[0.65rem]">
+            Codebase X-ray
           </span>
         </div>
 
         {/* Headline */}
-        <div className="space-y-5 max-w-4xl">
-          <h1 className="text-balance text-5xl font-semibold tracking-tight text-slate-50 sm:text-6xl lg:text-7xl lg:leading-[1.05]">
+        <div className="space-y-4 max-w-4xl">
+          <h1 className="text-balance text-3xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-7xl lg:leading-[1.05]">
             See any repository{" "}
             <span className="bg-linear-to-r from-sky-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
               like a living system.
             </span>
           </h1>
-          <p className="mx-auto max-w-2xl text-balance text-base text-slate-300 sm:text-lg">
+          <p className="mx-auto max-w-2xl text-balance text-sm text-slate-300 sm:text-lg">
             Paste a GitHub link. Pulse scans the code, builds an interactive
             dependency map and delivers a hard AI verdict on architecture,
             complexity and hidden technical debt — in under 30 seconds.
@@ -85,7 +85,7 @@ function Hero({ onStartAudit }: HeroProps) {
                 Pulse · Live analysis
               </span>
               <div className="rounded-full border border-sky-500/40 bg-slate-950/60 px-3 py-1 text-[0.65rem] text-slate-300">
-                OpenRouter · Qwen 3 Coder
+                Gemini 2.5 Flash
               </div>
             </div>
 
